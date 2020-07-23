@@ -1,3 +1,6 @@
+import requests
+
+
 def get_friends(user_id, fields):
     """ Returns a list of user IDs or detailed information about a user's friends """
     assert isinstance(user_id, int), "user_id must be positive integer"
