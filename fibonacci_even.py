@@ -1,4 +1,13 @@
+class FibonacciNumberException(Exception):
+    def __init__(self, text):
+        self.text = text
+
+
 def fib_even(n):
+    if n < 0:
+        raise FibonacciNumberException("The count of fibonacci numbers must to be positive or zero integer, "
+                                       "but not the negative.")
+
     number_0 = 0
     number_1 = 1
 
@@ -23,5 +32,10 @@ def fib_even(n):
 
 
 if __name__ == "__main__":
-    fibonacci_count = int(input("Please, input how much even fibonacci number do you want to return --> "))
-    print(fib_even(fibonacci_count))
+    try:
+        fibonacci_count = int(input("Please, input how much even fibonacci number do you want to return --> "))
+        print(fib_even(fibonacci_count))
+    except FibonacciNumberException as negative:
+        print(negative)
+    finally:
+        print("Goodby!")
